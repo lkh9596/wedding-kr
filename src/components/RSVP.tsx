@@ -19,8 +19,7 @@ export default function RSVP() {
 
       <ScrollAnimation>
         <h2
-          className="text-center text-lg mb-3"
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", textAlign: "center", fontSize: "18px", marginBottom: "12px" }}
         >
           참석 여부
         </h2>
@@ -28,8 +27,7 @@ export default function RSVP() {
 
       <ScrollAnimation delay={200}>
         <div
-          className="max-w-[360px] mx-auto rounded-xl p-8 text-center"
-          style={{ backgroundColor: "rgba(255,255,255,0.5)" }}
+          style={{ maxWidth: "360px", margin: "0 auto", borderRadius: "12px", padding: "32px", textAlign: "center", backgroundColor: "rgba(255,255,255,0.5)" }}
         >
           <svg
             width="32"
@@ -38,7 +36,7 @@ export default function RSVP() {
             fill="none"
             stroke="#C48B9F"
             strokeWidth="1"
-            className="mx-auto mb-4 opacity-40"
+            style={{ margin: "0 auto 16px", display: "block", opacity: 0.4 }}
           >
             <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
             <polyline points="14 2 14 8 20 8" />
@@ -47,8 +45,7 @@ export default function RSVP() {
             <polyline points="10 9 9 9 8 9" />
           </svg>
           <p
-            className="text-sm opacity-50"
-            style={{ fontFamily: "var(--font-sans)" }}
+            style={{ fontFamily: "var(--font-sans)", fontSize: "14px", opacity: 0.5 }}
           >
             준비 중입니다
           </p>
