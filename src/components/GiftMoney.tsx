@@ -58,7 +58,7 @@ export default function GiftMoney() {
       </ScrollAnimation>
 
       <ScrollAnimation delay={200}>
-        <div className="max-w-[360px] mx-auto">
+        <div style={{ maxWidth: "360px", margin: "0 auto" }}>
           {/* Groom side accordion */}
           <div
             className="rounded-xl overflow-hidden"
@@ -66,10 +66,10 @@ export default function GiftMoney() {
           >
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="w-full flex items-center justify-between px-5 py-4 text-sm"
-              style={{ fontFamily: "var(--font-sans)", color: "var(--color-charcoal)" }}
+              className="cursor-pointer"
+              style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 20px", fontSize: "14px", fontFamily: "var(--font-sans)", color: "var(--color-charcoal)", backgroundColor: "transparent", border: "none" }}
             >
-              <div className="flex items-center gap-2">
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" strokeWidth="1.5">
                   <path d="M20 6H4C2.9 6 2 6.9 2 8v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z" />
                   <path d="M2 10h20" />
