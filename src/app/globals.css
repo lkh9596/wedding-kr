@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-soft-pink: #F5E6E0;
+  --color-warm-beige: #FAF3EB;
+  --color-deep-rose: #C48B9F;
+  --color-charcoal: #3D3D3D;
+  --color-gold: #C9A96E;
+  --font-serif: "Noto Serif KR", serif;
+  --font-sans: "Noto Sans KR", sans-serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-soft-pink: var(--color-soft-pink);
+  --color-warm-beige: var(--color-warm-beige);
+  --color-deep-rose: var(--color-deep-rose);
+  --color-charcoal: var(--color-charcoal);
+  --color-gold: var(--color-gold);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-charcoal);
+  background: var(--color-warm-beige);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Section divider ornament */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 0;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  width: 60px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.5;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gallery scrollbar */
+.gallery-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Calendar button hover */
+.btn-calendar {
+  transition: all 0.3s ease;
+}
+
+.btn-calendar:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(196, 139, 159, 0.3);
+}
+
+/* Accordion animation */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.accordion-content.open {
+  max-height: 500px;
+}
+
+/* Floral ornament SVG animation */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ornament-animate {
+  animation: fadeInScale 1.2s ease-out forwards;
+}
+
+/* Hero gradient overlay */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(250, 243, 235, 0.3) 0%,
+    rgba(250, 243, 235, 0.8) 70%,
+    rgba(250, 243, 235, 1) 100%
+  );
+}
+
+/* Copy tooltip */
+.copy-tooltip {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.copy-tooltip.show {
+  opacity: 1;
 }
