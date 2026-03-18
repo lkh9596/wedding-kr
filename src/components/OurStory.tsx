@@ -27,10 +27,10 @@ export default function OurStory() {
       </ScrollAnimation>
 
       <ScrollAnimation delay={200}>
-        <div className="max-w-[360px] mx-auto">
+        <div style={{ textAlign: "center" }}>
           <p
-            className="text-center text-sm leading-[2.2] opacity-70"
-            style={{ fontFamily: "var(--font-serif)" }}
+            className="text-sm leading-[2.2] opacity-70"
+            style={{ fontFamily: "var(--font-serif)", textAlign: "center" }}
           >
             페루에서의 우연한 만남으로
             <br />
