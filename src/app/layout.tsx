@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "건호 ♥ 에스더 결혼합니다",
   description: "2027년 4월 3일 토요일 오후 4시 20분 | KU컨벤션 웨딩홀",
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "건호 ♥ 에스더 결혼합니다",
     description: "2027년 4월 3일 토요일 오후 4시 20분 | KU컨벤션 웨딩홀",
