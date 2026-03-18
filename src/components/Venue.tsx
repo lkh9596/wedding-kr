@@ -61,11 +61,18 @@ export default function Venue() {
             href="https://map.kakao.com/link/to/KU컨벤션웨딩홀,37.5383,127.0746"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs"
             style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              padding: "8px 16px",
+              borderRadius: "9999px",
+              fontSize: "12px",
               backgroundColor: "#FEE500",
               color: "#3D3D3D",
               fontFamily: "var(--font-sans)",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
             }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="#3D3D3D">
@@ -77,11 +84,18 @@ export default function Venue() {
             href="https://map.naver.com/v5/search/KU컨벤션웨딩홀"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs"
             style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              padding: "8px 16px",
+              borderRadius: "9999px",
+              fontSize: "12px",
               backgroundColor: "#03C75A",
               color: "#fff",
               fontFamily: "var(--font-sans)",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
             }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff">
