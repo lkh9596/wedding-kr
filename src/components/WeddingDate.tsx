@@ -87,10 +87,9 @@ export default function WeddingDate() {
 
       {/* Mini Calendar */}
       <ScrollAnimation delay={200}>
-        <div className="max-w-[300px] mx-auto mb-8">
+        <div style={{ maxWidth: "260px", margin: "0 auto", marginBottom: "12px" }}>
           <p
-            className="text-center text-sm mb-4 tracking-wider"
-            style={{ color: "var(--color-gold)", fontFamily: "var(--font-serif)" }}
+            style={{ color: "var(--color-gold)", fontFamily: "var(--font-serif)", textAlign: "center", fontSize: "14px", letterSpacing: "0.1em", marginBottom: "16px" }}
           >
             APRIL 2027
           </p>
@@ -131,7 +130,7 @@ export default function WeddingDate() {
               >
                 {day === weddingDay && (
                   <div
-                    className="absolute w-7 h-7 rounded-full"
+                    className="absolute w-6 h-6 rounded-full"
                     style={{ backgroundColor: "var(--color-deep-rose)" }}
                   />
                 )}
@@ -142,27 +141,30 @@ export default function WeddingDate() {
         </div>
       </ScrollAnimation>
 
-      {/* D-day counter placeholder */}
+      {/* Venue name & Calendar button */}
       <ScrollAnimation delay={300}>
-        <p className="text-center text-xs opacity-50 mb-6" style={{ fontFamily: "var(--font-sans)" }}>
+        <p style={{ fontFamily: "var(--font-sans)", textAlign: "center", fontSize: "12px", opacity: 0.5, marginBottom: "16px" }}>
           KU컨벤션 웨딩홀
         </p>
-      </ScrollAnimation>
-
-      {/* Add to Calendar */}
-      <ScrollAnimation delay={400}>
-        <div className="flex justify-center">
+        <div style={{ display: "flex", justifyContent: "center", paddingBottom: "16px" }}>
           <button
             onClick={handleAddToCalendar}
-            className="btn-calendar flex items-center gap-2 px-6 py-3 rounded-full text-sm"
+            className="btn-calendar cursor-pointer"
             style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "5px",
+              padding: "7px 16px",
+              borderRadius: "9999px",
               fontFamily: "var(--font-sans)",
-              backgroundColor: "rgba(255,255,255,0.7)",
-              color: "var(--color-charcoal)",
-              border: "1px solid rgba(201,169,110,0.3)",
+              fontSize: "11px",
+              backgroundColor: "var(--color-deep-rose)",
+              color: "#fff",
+              border: "none",
+              whiteSpace: "nowrap",
             }}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
               <line x1="16" y1="2" x2="16" y2="6" />
               <line x1="8" y1="2" x2="8" y2="6" />

@@ -47,14 +47,14 @@ export default function ParentsInfo() {
             <span className="opacity-60">이한행</span>
             <span className="mx-1 opacity-30" style={{ color: "var(--color-gold)" }}>·</span>
             <span className="opacity-60">박경숙</span>
-            <span className="opacity-50 text-sm mx-2">의 차남</span>
+            <span className="opacity-50 text-sm mx-2">의 차남 </span>
             <span className="font-medium" style={{ color: "var(--color-charcoal)" }}>건호</span>
           </p>
           <p>
             <span className="opacity-60">OOO</span>
             <span className="mx-1 opacity-30" style={{ color: "var(--color-gold)" }}>·</span>
             <span className="opacity-60">OOO</span>
-            <span className="opacity-50 text-sm mx-2">의 삼녀</span>
+            <span className="opacity-50 text-sm mx-2">의 삼녀 </span>
             <span className="font-medium" style={{ color: "var(--color-charcoal)" }}>에스더</span>
           </p>
         </div>
