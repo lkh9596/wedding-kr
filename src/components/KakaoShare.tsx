@@ -6,7 +6,7 @@ export default function KakaoShare() {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: "건호 ♥ 에스더 결혼합니다",
+        title: "이건호 ♥ 에스더 결혼합니다",
         text: "2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀",
         url: window.location.href,
       }).catch(() => {});
@@ -46,7 +46,7 @@ export default function KakaoShare() {
             onClick={() => {
               if (navigator.share) {
                 navigator.share({
-                  title: "건호 ♥ 에스더 결혼합니다",
+                  title: "이건호 ♥ 에스더 결혼합니다",
                   text: "2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀",
                   url: window.location.href,
                 }).catch(() => {});

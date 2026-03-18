@@ -31,7 +31,7 @@ function handleAddToCalendar() {
     "BEGIN:VEVENT",
     "DTSTART:20270403T072000Z",
     "DTEND:20270403T092000Z",
-    "SUMMARY:건호 ♥ 에스더 결혼식",
+    "SUMMARY:이건호 ♥ 에스더 결혼식",
     "LOCATION:KU컨벤션 웨딩홀, 서울 광진구 아차산로36길 5",
     "DESCRIPTION:이건호 & 에스더 결혼식\\n2027년 4월 3일 토요일 오후 4시 20분\\nKU컨벤션 웨딩홀",
     "END:VEVENT",

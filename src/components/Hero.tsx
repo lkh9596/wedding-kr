@@ -49,7 +49,7 @@ export default function Hero() {
         <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden">
           <img
             src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/main.JPG`}
-            alt="건호 & 에스더"
+            alt="이건호 & 에스더"
             className="w-full h-full object-cover"
           />
         </div>
