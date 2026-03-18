@@ -41,11 +41,11 @@ export default function Venue() {
 
       {/* Map */}
       <ScrollAnimation delay={200}>
-        <div className="max-w-[420px] mx-auto mb-6 rounded-xl overflow-hidden">
+        <div style={{ maxWidth: "360px", margin: "0 auto", marginBottom: "16px", borderRadius: "12px", overflow: "hidden" }}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.7113307966206!2d127.0746261!3d37.53830149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca4e7ac7792b9%3A0xeaff884567b6775a!2sKU%20Convention%20Wedding%20Hall!5e0!3m2!1sen!2skr!4v1773741385700!5m2!1sen!2skr"
             width="100%"
-            height="280"
+            height="250"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
@@ -56,7 +56,7 @@ export default function Venue() {
 
       {/* Map buttons */}
       <ScrollAnimation delay={300}>
-        <div className="flex justify-center gap-3 mb-10">
+        <div style={{ display: "flex", justifyContent: "center", gap: "12px", marginBottom: "24px" }}>
           <a
             href="https://map.kakao.com/link/to/KU컨벤션웨딩홀,37.5383,127.0746"
             target="_blank"
@@ -95,8 +95,7 @@ export default function Venue() {
       {/* Transportation info */}
       <ScrollAnimation delay={400}>
         <div
-          className="max-w-[360px] mx-auto rounded-xl p-6"
-          style={{ backgroundColor: "rgba(255,255,255,0.5)" }}
+          style={{ maxWidth: "360px", margin: "0 auto", borderRadius: "12px", padding: "20px", backgroundColor: "rgba(255,255,255,0.5)" }}
         >
           {/* Subway */}
           <div className="mb-5">
