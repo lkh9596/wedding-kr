@@ -24,7 +24,7 @@ export default function Footer() {
           marginBottom: "8px",
         }}
       >
-        건호 & 에스더
+        이건호 & 에스더
       </p>
 
       <p
