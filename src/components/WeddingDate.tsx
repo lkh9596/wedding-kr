@@ -23,23 +23,14 @@ function generateCalendarDays() {
   return { days, weddingDay };
 }
 
-function handleAddToCalendar() {
-  const event = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Wedding//KR//EN",
-    "BEGIN:VEVENT",
-    "DTSTART:20270403T072000Z",
-    "DTEND:20270403T092000Z",
-    "SUMMARY:이건호 ♥ 에스더 결혼식",
-    "LOCATION:KU컨벤션 웨딩홀, 서울 광진구 아차산로36길 5",
-    "DESCRIPTION:이건호 & 에스더 결혼식\\n2027년 4월 3일 토요일 오후 4시 20분\\nKU컨벤션 웨딩홀",
-    "END:VEVENT",
-    "END:VCALENDAR",
-  ].join("\r\n");
+const GOOGLE_CAL_URL = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" +
+  encodeURIComponent("이건호 ♥ 에스더 결혼식") +
+  "&dates=20270403T072000Z/20270403T092000Z" +
+  "&location=" + encodeURIComponent("KU컨벤션 웨딩홀, 서울 광진구 아차산로36길 5") +
+  "&details=" + encodeURIComponent("2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀");
 
-  const dataUri = "data:text/calendar;charset=utf-8," + encodeURIComponent(event);
-  window.open(dataUri, "_blank");
+function handleAddToCalendar() {
+  window.open(GOOGLE_CAL_URL, "_blank");
 }
 
 export default function WeddingDate() {
