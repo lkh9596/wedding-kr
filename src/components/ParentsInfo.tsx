@@ -46,7 +46,7 @@ export default function ParentsInfo() {
             <span style={{ color: "var(--color-gold)", margin: "0 4px", opacity: 0.3 }}>·</span>
             <span style={{ opacity: 0.6 }}>박경숙</span>
             <span style={{ opacity: 0.5, fontSize: "14px", margin: "0 8px" }}>의 차남 </span>
-            <span style={{ color: "var(--color-charcoal)", fontWeight: 500 }}>건호</span>
+            <span style={{ color: "var(--color-charcoal)", fontWeight: 500 }}>이건호</span>
           </p>
           <p>
             <span style={{ opacity: 0.6 }}>Jim Tan Rui Xia</span>
