@@ -1,9 +1,74 @@
 "use client";
 
+import { useEffect } from "react";
 import ScrollAnimation from "./ScrollAnimation";
 
+declare global {
+  interface Window {
+    Kakao: {
+      init: (key: string) => void;
+      isInitialized: () => boolean;
+      Share: {
+        sendDefault: (options: Record<string, unknown>) => void;
+      };
+    };
+  }
+}
+
+const KAKAO_KEY = "509f69cf3a948a498b7790421654fb55";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function KakaoShare() {
-  const handleShare = () => {
+  useEffect(() => {
+    const initKakao = () => {
+      if (window.Kakao && !window.Kakao.isInitialized()) {
+        window.Kakao.init(KAKAO_KEY);
+      }
+    };
+
+    if (window.Kakao) {
+      initKakao();
+    } else {
+      const interval = setInterval(() => {
+        if (window.Kakao) {
+          initKakao();
+          clearInterval(interval);
+        }
+      }, 500);
+      return () => clearInterval(interval);
+    }
+  }, []);
+
+  const handleKakaoShare = () => {
+    if (!window.Kakao?.isInitialized()) {
+      alert("카카오 SDK가 로딩 중입니다. 잠시 후 다시 시도해주세요.");
+      return;
+    }
+
+    window.Kakao.Share.sendDefault({
+      objectType: "feed",
+      content: {
+        title: "이건호 ♥ 에스더 결혼합니다",
+        description: "2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀",
+        imageUrl: `${window.location.origin}${basePath}/main.JPG`,
+        link: {
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href,
+        },
+      },
+      buttons: [
+        {
+          title: "청첩장 보기",
+          link: {
+            mobileWebUrl: window.location.href,
+            webUrl: window.location.href,
+          },
+        },
+      ],
+    });
+  };
+
+  const handleLinkShare = () => {
     if (navigator.share) {
       navigator.share({
         title: "이건호 ♥ 에스더 결혼합니다",
@@ -11,7 +76,9 @@ export default function KakaoShare() {
         url: window.location.href,
       }).catch(() => {});
     } else {
-      alert("카카오톡 공유 기능은 모바일에서 이용 가능합니다.");
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert("링크가 복사되었습니다!");
+      });
     }
   };
 
@@ -20,7 +87,7 @@ export default function KakaoShare() {
       <ScrollAnimation>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
           <button
-            onClick={handleShare}
+            onClick={handleKakaoShare}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -43,15 +110,7 @@ export default function KakaoShare() {
           </button>
 
           <button
-            onClick={() => {
-              if (navigator.share) {
-                navigator.share({
-                  title: "이건호 ♥ 에스더 결혼합니다",
-                  text: "2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀",
-                  url: window.location.href,
-                }).catch(() => {});
-              }
-            }}
+            onClick={handleLinkShare}
             style={{
               display: "inline-flex",
               alignItems: "center",

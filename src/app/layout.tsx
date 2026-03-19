@@ -26,6 +26,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap"
           rel="stylesheet"
         />
+        <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" async />
       </head>
       <body>{children}</body>
     </html>
