@@ -38,15 +38,8 @@ function handleAddToCalendar() {
     "END:VCALENDAR",
   ].join("\r\n");
 
-  const blob = new Blob([event], { type: "text/calendar;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "건호에스더_결혼식.ics";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
+  const dataUri = "data:text/calendar;charset=utf-8," + encodeURIComponent(event);
+  window.open(dataUri, "_blank");
 }
 
 export default function WeddingDate() {
