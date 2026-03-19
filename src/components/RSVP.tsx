@@ -4,8 +4,8 @@ import ScrollAnimation from "./ScrollAnimation";
 
 export default function RSVP() {
   return (
-    <section className="py-16 px-6">
-      <div className="section-divider mb-8">
+    <section style={{ padding: "64px 24px" }}>
+      <div className="section-divider" style={{ marginBottom: "32px" }}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path
             d="M1 4L8 9L15 4"

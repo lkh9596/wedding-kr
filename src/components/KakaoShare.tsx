@@ -16,12 +16,11 @@ export default function KakaoShare() {
   };
 
   return (
-    <section className="py-12 px-6">
+    <section style={{ padding: "48px 24px" }}>
       <ScrollAnimation>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
           <button
             onClick={handleShare}
-            className="cursor-pointer"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -34,6 +33,7 @@ export default function KakaoShare() {
               fontFamily: "var(--font-sans)",
               border: "none",
               whiteSpace: "nowrap",
+              cursor: "pointer",
             }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="#3D3D3D">
@@ -52,7 +52,6 @@ export default function KakaoShare() {
                 }).catch(() => {});
               }
             }}
-            className="cursor-pointer"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -65,6 +64,7 @@ export default function KakaoShare() {
               fontFamily: "var(--font-sans)",
               border: "1px solid rgba(201,169,110,0.2)",
               whiteSpace: "nowrap",
+              cursor: "pointer",
             }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

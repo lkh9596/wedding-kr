@@ -5,12 +5,14 @@ import { useEffect, useRef, ReactNode } from "react";
 interface ScrollAnimationProps {
   children: ReactNode;
   className?: string;
+  style?: React.CSSProperties;
   delay?: number;
 }
 
 export default function ScrollAnimation({
   children,
   className = "",
+  style,
   delay = 0,
 }: ScrollAnimationProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -38,7 +40,7 @@ export default function ScrollAnimation({
   }, [delay]);
 
   return (
-    <div ref={ref} className={`fade-in ${className}`}>
+    <div ref={ref} className={`fade-in ${className}`.trim()} style={style}>
       {children}
     </div>
   );

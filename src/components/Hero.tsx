@@ -4,15 +4,16 @@ import ScrollAnimation from "./ScrollAnimation";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-16 pb-12">
+    <section style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", paddingLeft: "24px", paddingRight: "24px", paddingTop: "64px", paddingBottom: "48px" }}>
       {/* Decorative top ornament */}
-      <ScrollAnimation className="mb-8">
+      <ScrollAnimation style={{ marginBottom: "32px" }}>
         <svg
           width="60"
           height="60"
           viewBox="0 0 60 60"
           fill="none"
-          className="ornament-animate mx-auto"
+          className="ornament-animate"
+          style={{ margin: "0 auto", display: "block" }}
         >
           <path
             d="M30 5C30 5 20 15 20 25C20 30.5 24.5 35 30 35C35.5 35 40 30.5 40 25C40 15 30 5 30 5Z"
@@ -37,20 +38,19 @@ export default function Hero() {
       {/* Greeting */}
       <ScrollAnimation delay={200}>
         <p
-          className="text-center text-sm tracking-[0.3em] mb-10"
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-deep-rose)" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-deep-rose)", textAlign: "center", fontSize: "14px", letterSpacing: "0.3em", marginBottom: "40px" }}
         >
           WEDDING INVITATION
         </p>
       </ScrollAnimation>
 
       {/* Couple photo */}
-      <ScrollAnimation delay={400} className="w-full max-w-[320px] mb-10">
-        <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden">
+      <ScrollAnimation delay={400} style={{ width: "100%", maxWidth: "320px", marginBottom: "40px" }}>
+        <div style={{ position: "relative", width: "100%", aspectRatio: "3/4", borderRadius: "16px", overflow: "hidden" }}>
           <img
             src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/main.JPG`}
             alt="이건호 & 에스더"
-            className="w-full h-full object-cover"
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>
       </ScrollAnimation>
@@ -58,8 +58,7 @@ export default function Hero() {
       {/* Main greeting */}
       <ScrollAnimation delay={600}>
         <h1
-          className="text-center text-2xl leading-relaxed mb-6"
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", textAlign: "center", fontSize: "24px", lineHeight: "1.625", marginBottom: "24px" }}
         >
           소중한 분들을
           <br />
@@ -70,13 +69,11 @@ export default function Hero() {
       {/* Couple names */}
       <ScrollAnimation delay={800}>
         <div
-          className="flex items-center justify-center gap-5 text-xl"
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", display: "flex", alignItems: "center", justifyContent: "center", gap: "20px", fontSize: "20px" }}
         >
           <span>이건호</span>
           <span
-            className="text-sm"
-            style={{ color: "var(--color-deep-rose)" }}
+            style={{ color: "var(--color-deep-rose)", fontSize: "14px" }}
           >
             &
           </span>
@@ -87,31 +84,29 @@ export default function Hero() {
       {/* Date summary */}
       <ScrollAnimation delay={1000}>
         <p
-          className="text-center text-sm mt-6 tracking-wider"
-          style={{ color: "var(--color-gold)", fontFamily: "var(--font-serif)" }}
+          style={{ color: "var(--color-gold)", fontFamily: "var(--font-serif)", textAlign: "center", fontSize: "14px", marginTop: "24px", letterSpacing: "0.05em" }}
         >
           2027. 04. 03 SAT PM 4:20
         </p>
         <p
-          className="text-center text-xs mt-2 tracking-wider opacity-70"
-          style={{ fontFamily: "var(--font-sans)" }}
+          style={{ fontFamily: "var(--font-sans)", textAlign: "center", fontSize: "12px", marginTop: "8px", letterSpacing: "0.05em", opacity: 0.7 }}
         >
           KU컨벤션 웨딩홀
         </p>
       </ScrollAnimation>
 
       {/* Scroll indicator */}
-      <ScrollAnimation delay={1200} className="mt-12">
-        <div className="flex flex-col items-center opacity-30">
+      <ScrollAnimation delay={1200} style={{ marginTop: "48px" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", opacity: 0.3 }}>
           <div
-            className="w-px h-8 animate-pulse"
-            style={{ backgroundColor: "var(--color-gold)" }}
+            className="animate-pulse"
+            style={{ backgroundColor: "var(--color-gold)", width: "1px", height: "32px" }}
           />
           <svg
             width="12"
             height="12"
             viewBox="0 0 12 12"
-            className="mt-1"
+            style={{ marginTop: "4px" }}
           >
             <path
               d="M2 4L6 8L10 4"

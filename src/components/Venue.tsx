@@ -4,8 +4,8 @@ import ScrollAnimation from "./ScrollAnimation";
 
 export default function Venue() {
   return (
-    <section className="py-16 px-6">
-      <div className="section-divider mb-8">
+    <section style={{ padding: "64px 24px" }}>
+      <div className="section-divider" style={{ marginBottom: "32px" }}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path
             d="M8 1C5.2 1 3 3.2 3 6C3 10 8 15 8 15C8 15 13 10 13 6C13 3.2 10.8 1 8 1Z"
@@ -20,8 +20,7 @@ export default function Venue() {
 
       <ScrollAnimation>
         <h2
-          className="text-center text-lg mb-2"
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", textAlign: "center", fontSize: "18px", marginBottom: "8px" }}
         >
           오시는 길
         </h2>
@@ -29,12 +28,11 @@ export default function Venue() {
 
       <ScrollAnimation delay={100}>
         <p
-          className="text-center text-[15px] mt-4 mb-1"
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", textAlign: "center", fontSize: "15px", marginTop: "16px", marginBottom: "4px" }}
         >
           KU컨벤션 웨딩홀
         </p>
-        <p className="text-center text-xs opacity-50 mb-8" style={{ fontFamily: "var(--font-sans)" }}>
+        <p style={{ fontFamily: "var(--font-sans)", textAlign: "center", fontSize: "12px", opacity: 0.5, marginBottom: "32px" }}>
           서울 광진구 아차산로36길 5
         </p>
       </ScrollAnimation>
