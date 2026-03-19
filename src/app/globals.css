@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 :root {
   --color-soft-pink: #F5E6E0;
   --color-warm-beige: #FAF3EB;
@@ -10,15 +8,7 @@
   --font-sans: "Noto Sans KR", sans-serif;
 }
 
-@theme inline {
-  --color-soft-pink: var(--color-soft-pink);
-  --color-warm-beige: var(--color-warm-beige);
-  --color-deep-rose: var(--color-deep-rose);
-  --color-charcoal: var(--color-charcoal);
-  --color-gold: var(--color-gold);
-}
-
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -37,7 +27,21 @@ body {
   overflow-x: hidden;
 }
 
-/* Scrollbar styling */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Scrollbar hiding */
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
@@ -120,22 +124,21 @@ body {
   animation: fadeInScale 1.2s ease-out forwards;
 }
 
-/* Hero gradient overlay */
-.hero-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(250, 243, 235, 0.3) 0%,
-    rgba(250, 243, 235, 0.8) 70%,
-    rgba(250, 243, 235, 1) 100%
-  );
+/* Snap scrolling for gallery */
+.snap-x {
+  scroll-snap-type: x mandatory;
 }
 
-/* Copy tooltip */
-.copy-tooltip {
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.snap-center {
+  scroll-snap-align: center;
 }
 
-.copy-tooltip.show {
-  opacity: 1;
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
 }

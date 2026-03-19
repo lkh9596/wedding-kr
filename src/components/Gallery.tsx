@@ -35,8 +35,8 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section className="py-16" style={{ backgroundColor: "var(--color-soft-pink)" }}>
-      <div className="section-divider mb-8 px-6">
+    <section style={{ backgroundColor: "var(--color-soft-pink)", paddingTop: "64px", paddingBottom: "64px" }}>
+      <div className="section-divider" style={{ marginBottom: "32px", paddingLeft: "24px", paddingRight: "24px" }}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <rect x="2" y="2" width="12" height="12" rx="1" stroke="#C9A96E" strokeWidth="0.8" opacity="0.5" />
           <circle cx="6" cy="6" r="1.5" stroke="#C9A96E" strokeWidth="0.6" opacity="0.4" />
@@ -44,10 +44,9 @@ export default function Gallery() {
         </svg>
       </div>
 
-      <ScrollAnimation className="px-6">
+      <ScrollAnimation style={{ paddingLeft: "24px", paddingRight: "24px" }}>
         <h2
-          className="text-center text-lg mb-8"
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", textAlign: "center", fontSize: "18px", marginBottom: "32px" }}
         >
           갤러리
         </h2>
@@ -56,29 +55,33 @@ export default function Gallery() {
       <ScrollAnimation delay={200}>
         <div
           ref={scrollRef}
-          className="gallery-scroll flex gap-3 overflow-x-auto px-6 pb-4 snap-x snap-mandatory"
+          className="gallery-scroll snap-x"
+          style={{ display: "flex", gap: "12px", overflowX: "auto", padding: "0 24px 16px" }}
         >
           {photos.map((src, i) => (
             <div
               key={i}
-              className="flex-shrink-0 snap-center rounded-xl overflow-hidden"
+              className="snap-center"
               style={{
-                width: "260px",
-                minWidth: "260px",
+                width: "75%",
+                minWidth: "0",
+                flexShrink: 0,
                 aspectRatio: "3/4",
+                borderRadius: "12px",
+                overflow: "hidden",
               }}
             >
               <img
                 src={src}
                 alt={`Photo ${i + 1}`}
-                className="w-full h-full object-cover"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>
           ))}
         </div>
 
         {/* Dots indicator */}
-        <div className="flex justify-center gap-1.5 mt-4">
+        <div style={{ display: "flex", justifyContent: "center", gap: "6px", marginTop: "16px" }}>
           {photos.map((_, i) => (
             <button
               key={i}
@@ -88,11 +91,17 @@ export default function Gallery() {
                 const card = el.children[i] as HTMLElement;
                 card.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
               }}
-              className="w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer"
               style={{
                 backgroundColor: "var(--color-deep-rose)",
                 opacity: i === activeIndex ? 0.8 : 0.2,
                 transform: i === activeIndex ? "scale(1.3)" : "scale(1)",
+                width: "6px",
+                height: "6px",
+                borderRadius: "9999px",
+                transition: "all 300ms",
+                cursor: "pointer",
+                border: "none",
+                padding: 0,
               }}
               aria-label={`Go to photo ${i + 1}`}
             />

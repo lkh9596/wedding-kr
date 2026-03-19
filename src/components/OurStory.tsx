@@ -4,8 +4,8 @@ import ScrollAnimation from "./ScrollAnimation";
 
 export default function OurStory() {
   return (
-    <section className="py-16 px-6">
-      <div className="section-divider mb-8">
+    <section style={{ padding: "64px 24px" }}>
+      <div className="section-divider" style={{ marginBottom: "32px" }}>
         <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
           <path
             d="M10 14C10 14 1 8 1 4.5C1 2 3 0 5.5 0C7.5 0 9 1.5 10 3C11 1.5 12.5 0 14.5 0C17 0 19 2 19 4.5C19 8 10 14 10 14Z"
@@ -19,8 +19,7 @@ export default function OurStory() {
 
       <ScrollAnimation>
         <h2
-          className="text-center text-lg mb-8"
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", textAlign: "center", fontSize: "18px", marginBottom: "32px" }}
         >
           우리의 이야기
         </h2>
@@ -29,8 +28,7 @@ export default function OurStory() {
       <ScrollAnimation delay={200}>
         <div style={{ textAlign: "center" }}>
           <p
-            className="text-sm leading-[2.2] opacity-70"
-            style={{ fontFamily: "var(--font-serif)", textAlign: "center" }}
+            style={{ fontFamily: "var(--font-serif)", textAlign: "center", fontSize: "14px", lineHeight: "2.2", opacity: 0.7 }}
           >
             페루에서의 우연한 만남으로
             <br />

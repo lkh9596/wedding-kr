@@ -29,8 +29,8 @@ export default function GiftMoney() {
   };
 
   return (
-    <section className="py-16 px-6" style={{ backgroundColor: "var(--color-soft-pink)" }}>
-      <div className="section-divider mb-8">
+    <section style={{ backgroundColor: "var(--color-soft-pink)", padding: "64px 24px" }}>
+      <div className="section-divider" style={{ marginBottom: "32px" }}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path
             d="M8 1L10 5.5H15L11 8.5L12.5 13L8 10L3.5 13L5 8.5L1 5.5H6L8 1Z"
@@ -44,14 +44,12 @@ export default function GiftMoney() {
 
       <ScrollAnimation>
         <h2
-          className="text-center text-lg mb-3"
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", textAlign: "center", fontSize: "18px", marginBottom: "12px" }}
         >
           마음 전하실 곳
         </h2>
         <p
-          className="text-center text-xs opacity-50 mb-8"
-          style={{ fontFamily: "var(--font-sans)" }}
+          style={{ fontFamily: "var(--font-sans)", textAlign: "center", fontSize: "12px", opacity: 0.5, marginBottom: "32px" }}
         >
           축하의 마음을 전해주세요
         </p>
@@ -61,13 +59,11 @@ export default function GiftMoney() {
         <div style={{ maxWidth: "360px", margin: "0 auto" }}>
           {/* Groom side accordion */}
           <div
-            className="rounded-xl overflow-hidden"
-            style={{ backgroundColor: "rgba(255,255,255,0.6)" }}
+            style={{ borderRadius: "12px", overflow: "hidden", backgroundColor: "rgba(255,255,255,0.6)" }}
           >
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="cursor-pointer"
-              style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 20px", fontSize: "14px", fontFamily: "var(--font-sans)", color: "var(--color-charcoal)", backgroundColor: "transparent", border: "none" }}
+              style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 20px", fontSize: "14px", fontFamily: "var(--font-sans)", color: "var(--color-charcoal)", backgroundColor: "transparent", border: "none", cursor: "pointer" }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" strokeWidth="1.5">
@@ -83,34 +79,41 @@ export default function GiftMoney() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="transition-transform duration-300"
-                style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 300ms" }}
               >
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
 
             <div className={`accordion-content ${isOpen ? "open" : ""}`}>
-              <div className="px-5 pb-4">
+              <div style={{ paddingLeft: "20px", paddingRight: "20px", paddingBottom: "16px" }}>
                 <div
-                  className="flex items-center justify-between py-3 px-4 rounded-lg"
-                  style={{ backgroundColor: "rgba(250,243,235,0.8)" }}
+                  style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px", borderRadius: "8px", backgroundColor: "rgba(250,243,235,0.8)" }}
                 >
                   <div>
-                    <p className="text-xs opacity-50 mb-1" style={{ fontFamily: "var(--font-sans)" }}>
+                    <p style={{ fontFamily: "var(--font-sans)", fontSize: "12px", opacity: 0.5, marginBottom: "4px" }}>
                       아버지 {accountHolder}
                     </p>
-                    <p className="text-sm" style={{ fontFamily: "var(--font-sans)", color: "var(--color-charcoal)" }}>
+                    <p style={{ fontFamily: "var(--font-sans)", color: "var(--color-charcoal)", fontSize: "14px" }}>
                       {accountNumber}
                     </p>
                   </div>
                   <button
                     onClick={handleCopy}
-                    className="relative flex items-center gap-1 px-3 py-1.5 rounded-full text-xs transition-all"
                     style={{
+                      position: "relative",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "4px",
+                      padding: "6px 12px",
+                      borderRadius: "9999px",
+                      fontSize: "12px",
+                      transition: "all 150ms",
                       backgroundColor: copied ? "var(--color-deep-rose)" : "rgba(201,169,110,0.15)",
                       color: copied ? "#fff" : "var(--color-charcoal)",
                       fontFamily: "var(--font-sans)",
+                      border: "none",
+                      cursor: "pointer",
                     }}
                   >
                     {copied ? (

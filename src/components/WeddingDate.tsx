@@ -37,8 +37,8 @@ export default function WeddingDate() {
   const { days, weddingDay } = generateCalendarDays();
 
   return (
-    <section className="py-16 px-6" style={{ backgroundColor: "var(--color-soft-pink)" }}>
-      <div className="section-divider mb-8">
+    <section style={{ backgroundColor: "var(--color-soft-pink)", padding: "64px 24px" }}>
+      <div className="section-divider" style={{ marginBottom: "32px" }}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <circle cx="8" cy="8" r="5" stroke="#C9A96E" strokeWidth="0.8" opacity="0.5" />
           <circle cx="8" cy="8" r="2" stroke="#C9A96E" strokeWidth="0.6" opacity="0.4" />
@@ -47,8 +47,7 @@ export default function WeddingDate() {
 
       <ScrollAnimation>
         <h2
-          className="text-center text-lg mb-2"
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", textAlign: "center", fontSize: "18px", marginBottom: "8px" }}
         >
           예식 안내
         </h2>
@@ -56,14 +55,12 @@ export default function WeddingDate() {
 
       <ScrollAnimation delay={100}>
         <p
-          className="text-center text-[15px] mt-4 mb-2"
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", textAlign: "center", fontSize: "15px", marginTop: "16px", marginBottom: "8px" }}
         >
           2027년 4월 3일 토요일
         </p>
         <p
-          className="text-center text-[15px] mb-8"
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-deep-rose)" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-deep-rose)", textAlign: "center", fontSize: "15px", marginBottom: "32px" }}
         >
           오후 4시 20분
         </p>
@@ -79,15 +76,16 @@ export default function WeddingDate() {
           </p>
 
           {/* Day headers */}
-          <div className="grid grid-cols-7 gap-0 text-center text-xs mb-2">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "0", textAlign: "center", fontSize: "12px", marginBottom: "8px" }}>
             {DAYS_OF_WEEK.map((day, i) => (
               <div
                 key={day}
-                className="py-1"
                 style={{
                   fontFamily: "var(--font-sans)",
                   color: i === 0 ? "var(--color-deep-rose)" : "var(--color-charcoal)",
                   opacity: 0.5,
+                  paddingTop: "4px",
+                  paddingBottom: "4px",
                 }}
               >
                 {day}
@@ -96,11 +94,10 @@ export default function WeddingDate() {
           </div>
 
           {/* Calendar days */}
-          <div className="grid grid-cols-7 gap-0 text-center text-sm">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "0", textAlign: "center", fontSize: "14px" }}>
             {days.map((day, i) => (
               <div
                 key={i}
-                className="py-[6px] relative flex items-center justify-center"
                 style={{
                   fontFamily: "var(--font-sans)",
                   color:
@@ -110,15 +107,19 @@ export default function WeddingDate() {
                       ? "var(--color-deep-rose)"
                       : "var(--color-charcoal)",
                   opacity: day ? (day === weddingDay ? 1 : 0.6) : 0,
+                  padding: "6px 0",
+                  position: "relative",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 {day === weddingDay && (
                   <div
-                    className="absolute w-6 h-6 rounded-full"
-                    style={{ backgroundColor: "var(--color-deep-rose)" }}
+                    style={{ position: "absolute", width: "24px", height: "24px", borderRadius: "9999px", backgroundColor: "var(--color-deep-rose)" }}
                   />
                 )}
-                <span className="relative z-10 text-xs">{day}</span>
+                <span style={{ position: "relative", zIndex: 10, fontSize: "12px" }}>{day}</span>
               </div>
             ))}
           </div>
@@ -133,7 +134,7 @@ export default function WeddingDate() {
         <div style={{ display: "flex", justifyContent: "center", paddingBottom: "16px" }}>
           <button
             onClick={handleAddToCalendar}
-            className="btn-calendar cursor-pointer"
+            className="btn-calendar"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -146,6 +147,7 @@ export default function WeddingDate() {
               color: "#fff",
               border: "none",
               whiteSpace: "nowrap",
+              cursor: "pointer",
             }}
           >
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

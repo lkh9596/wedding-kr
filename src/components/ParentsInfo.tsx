@@ -4,9 +4,9 @@ import ScrollAnimation from "./ScrollAnimation";
 
 export default function ParentsInfo() {
   return (
-    <section className="py-16 px-6">
+    <section style={{ padding: "64px 24px" }}>
       {/* Divider */}
-      <div className="section-divider mb-12">
+      <div className="section-divider" style={{ marginBottom: "48px" }}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path
             d="M8 1L9.5 6.5H15L10.5 9.5L12 15L8 11.5L4 15L5.5 9.5L1 6.5H6.5L8 1Z"
@@ -20,8 +20,7 @@ export default function ParentsInfo() {
 
       <ScrollAnimation>
         <p
-          className="text-center text-sm leading-loose mb-10 opacity-80"
-          style={{ fontFamily: "var(--font-serif)", lineHeight: "2.2" }}
+          style={{ fontFamily: "var(--font-serif)", lineHeight: "2.2", textAlign: "center", fontSize: "14px", marginBottom: "40px", opacity: 0.8 }}
         >
           서로가 마주보며 다져온 사랑을
           <br />
@@ -40,20 +39,19 @@ export default function ParentsInfo() {
 
       <ScrollAnimation delay={200}>
         <div
-          className="text-center text-[15px] leading-[2.8]"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-serif)", textAlign: "center", fontSize: "15px", lineHeight: "2.8" }}
         >
           <p>
-            <span className="opacity-60">이한행</span>
-            <span className="mx-1 opacity-30" style={{ color: "var(--color-gold)" }}>·</span>
-            <span className="opacity-60">박경숙</span>
-            <span className="opacity-50 text-sm mx-2">의 차남 </span>
-            <span className="font-medium" style={{ color: "var(--color-charcoal)" }}>건호</span>
+            <span style={{ opacity: 0.6 }}>이한행</span>
+            <span style={{ color: "var(--color-gold)", margin: "0 4px", opacity: 0.3 }}>·</span>
+            <span style={{ opacity: 0.6 }}>박경숙</span>
+            <span style={{ opacity: 0.5, fontSize: "14px", margin: "0 8px" }}>의 차남 </span>
+            <span style={{ color: "var(--color-charcoal)", fontWeight: 500 }}>건호</span>
           </p>
           <p>
-            <span className="opacity-60">Jim Tan Rui Xia</span>
-            <span className="opacity-50 text-sm mx-2">의 삼녀 </span>
-            <span className="font-medium" style={{ color: "var(--color-charcoal)" }}>에스더</span>
+            <span style={{ opacity: 0.6 }}>Jim Tan Rui Xia</span>
+            <span style={{ opacity: 0.5, fontSize: "14px", margin: "0 8px" }}>의 삼녀 </span>
+            <span style={{ color: "var(--color-charcoal)", fontWeight: 500 }}>에스더</span>
           </p>
         </div>
       </ScrollAnimation>
