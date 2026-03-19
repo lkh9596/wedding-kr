@@ -63,8 +63,8 @@ export default function Gallery() {
               key={i}
               className="flex-shrink-0 snap-center rounded-xl overflow-hidden"
               style={{
-                width: "72vw",
-                maxWidth: "320px",
+                width: "260px",
+                minWidth: "260px",
                 aspectRatio: "3/4",
               }}
             >

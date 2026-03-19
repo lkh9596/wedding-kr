@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen mx-auto" style={{ maxWidth: "480px", backgroundColor: "var(--color-warm-beige)" }}>
+    <div className="min-h-screen mx-auto" style={{ maxWidth: "480px", backgroundColor: "var(--color-warm-beige)", overflow: "hidden" }}>
       <Hero />
       <ParentsInfo />
       <WeddingDate />
