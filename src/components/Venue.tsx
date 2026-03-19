@@ -112,8 +112,8 @@ export default function Venue() {
           style={{ maxWidth: "360px", margin: "0 auto", borderRadius: "12px", padding: "20px", backgroundColor: "rgba(255,255,255,0.5)" }}
         >
           {/* Subway */}
-          <div className="mb-5">
-            <div className="flex items-center gap-2 mb-2">
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C48B9F" strokeWidth="1.5">
                 <rect x="4" y="3" width="16" height="14" rx="3" />
                 <line x1="4" y1="10" x2="20" y2="10" />
@@ -122,30 +122,17 @@ export default function Venue() {
                 <line x1="8" y1="17" x2="6" y2="20" />
                 <line x1="16" y1="17" x2="18" y2="20" />
               </svg>
-              <span
-                className="text-xs font-medium"
-                style={{ color: "var(--color-charcoal)", fontFamily: "var(--font-sans)" }}
-              >
+              <span style={{ fontSize: "12px", fontWeight: 500, color: "var(--color-charcoal)", fontFamily: "var(--font-sans)" }}>
                 지하철
               </span>
             </div>
-            <div className="text-xs leading-relaxed opacity-60 pl-6" style={{ fontFamily: "var(--font-sans)" }}>
-              <p className="mb-1">
-                <span
-                  className="inline-block w-4 h-4 rounded-full text-[10px] text-white text-center leading-4 mr-1.5"
-                  style={{ backgroundColor: "#33A23D" }}
-                >
-                  2
-                </span>
+            <div style={{ fontSize: "12px", lineHeight: "1.8", opacity: 0.6, paddingLeft: "24px", fontFamily: "var(--font-sans)" }}>
+              <p style={{ marginBottom: "4px" }}>
+                <span style={{ display: "inline-block", width: "16px", height: "16px", borderRadius: "50%", fontSize: "10px", color: "#fff", textAlign: "center", lineHeight: "16px", marginRight: "6px", backgroundColor: "#33A23D" }}>2</span>
                 건대입구역 5번출구
               </p>
               <p>
-                <span
-                  className="inline-block w-4 h-4 rounded-full text-[10px] text-white text-center leading-4 mr-1.5"
-                  style={{ backgroundColor: "#747F00" }}
-                >
-                  7
-                </span>
+                <span style={{ display: "inline-block", width: "16px", height: "16px", borderRadius: "50%", fontSize: "10px", color: "#fff", textAlign: "center", lineHeight: "16px", marginRight: "6px", backgroundColor: "#747F00" }}>7</span>
                 건대입구역 4번출구
               </p>
             </div>
@@ -153,21 +140,18 @@ export default function Venue() {
 
           {/* Parking */}
           <div>
-            <div className="flex items-center gap-2 mb-2">
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C48B9F" strokeWidth="1.5">
                 <rect x="3" y="6" width="18" height="14" rx="2" />
                 <path d="M9 10h3c1.7 0 3 1.3 3 3s-1.3 3-3 3H9V10z" />
                 <line x1="9" y1="13" x2="12" y2="13" />
               </svg>
-              <span
-                className="text-xs font-medium"
-                style={{ color: "var(--color-charcoal)", fontFamily: "var(--font-sans)" }}
-              >
+              <span style={{ fontSize: "12px", fontWeight: 500, color: "var(--color-charcoal)", fontFamily: "var(--font-sans)" }}>
                 주차
               </span>
             </div>
-            <div className="text-xs leading-relaxed opacity-60 pl-6" style={{ fontFamily: "var(--font-sans)" }}>
-              <p className="mb-1">KU컨벤션웨딩홀 전용주차장 이용 (1시간 무료)</p>
+            <div style={{ fontSize: "12px", lineHeight: "1.8", opacity: 0.6, paddingLeft: "24px", fontFamily: "var(--font-sans)" }}>
+              <p style={{ marginBottom: "4px" }}>KU컨벤션웨딩홀 전용주차장 이용 (1시간 무료)</p>
               <p>건대 수의과대학 주차장 이용 (2시간 무료)</p>
             </div>
           </div>

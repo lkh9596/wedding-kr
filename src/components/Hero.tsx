@@ -37,7 +37,7 @@ export default function Hero() {
       {/* Greeting */}
       <ScrollAnimation delay={200}>
         <p
-          className="text-center text-sm tracking-[0.3em] mb-6"
+          className="text-center text-sm tracking-[0.3em] mb-10"
           style={{ fontFamily: "var(--font-serif)", color: "var(--color-deep-rose)" }}
         >
           WEDDING INVITATION
