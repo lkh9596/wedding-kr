@@ -3,17 +3,18 @@
 import { useState } from "react";
 import ScrollAnimation from "./ScrollAnimation";
 
-// Submits to the existing Google Form so responses still land in the same
-// Google Sheet. Field entry IDs are taken from that form:
-//   성함        -> entry.1812976759
-//   참석 여부   -> entry.1951290001  ("참석합니다" / "불참합니다")
-//   참석 인원   -> entry.337409612   ("1명" ~ "4명")
+// Submits to the wedding RSVP Google Form so responses land in its linked
+// sheet. These are the form's submission entry IDs (the inner field IDs
+// Google Forms posts under — verified against the rendered form):
+//   성함        -> entry.569184833
+//   참석 여부   -> entry.1286040236  ("참석합니다" / "불참합니다")
+//   참석 인원   -> entry.2094300713  ("1명" ~ "4명")
 const FORM_ACTION =
-  "https://docs.google.com/forms/d/e/1FAIpQLSdvKX3_EwzPlh-Fvo9IAW1t_UZG-WaXjY7Z_oC2WZSvm4sBMA/formResponse";
+  "https://docs.google.com/forms/d/e/1FAIpQLSfb8E6ohLUgIgTHFTPXGujSwG84YEJU5Ox-Df37_3nOQuy8YA/formResponse";
 
-const ENTRY_NAME = "entry.1812976759";
-const ENTRY_ATTENDANCE = "entry.1951290001";
-const ENTRY_COUNT = "entry.337409612";
+const ENTRY_NAME = "entry.569184833";
+const ENTRY_ATTENDANCE = "entry.1286040236";
+const ENTRY_COUNT = "entry.2094300713";
 
 const ATTENDING = "참석합니다";
 const NOT_ATTENDING = "불참합니다";
