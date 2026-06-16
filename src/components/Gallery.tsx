@@ -7,7 +7,6 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const photos = [
   `${basePath}/1.jpg`,
-  `${basePath}/2.jpg`,
   `${basePath}/3.jpg`,
   `${basePath}/4.JPG`,
   `${basePath}/5.JPG`,
@@ -25,7 +24,8 @@ export default function Gallery() {
 
     const handleScroll = () => {
       const scrollLeft = container.scrollLeft;
-      const itemWidth = container.offsetWidth * 0.72 + 12;
+      // One card per view: stride = card width (offsetWidth - 2*padding) + gap.
+      const itemWidth = container.offsetWidth - 24;
       const index = Math.round(scrollLeft / itemWidth);
       setActiveIndex(Math.min(index, photos.length - 1));
     };
@@ -56,14 +56,14 @@ export default function Gallery() {
         <div
           ref={scrollRef}
           className="gallery-scroll snap-x"
-          style={{ display: "flex", gap: "12px", overflowX: "auto", padding: "0 24px 16px" }}
+          style={{ display: "flex", gap: "24px", overflowX: "auto", padding: "0 24px 16px" }}
         >
           {photos.map((src, i) => (
             <div
               key={i}
               className="snap-center"
               style={{
-                width: "75%",
+                width: "100%",
                 minWidth: "0",
                 flexShrink: 0,
                 aspectRatio: "3/4",
