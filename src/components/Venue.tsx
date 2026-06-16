@@ -1,6 +1,9 @@
 "use client";
 
+import CopyButton from "./CopyButton";
 import ScrollAnimation from "./ScrollAnimation";
+
+const VENUE_ADDRESS = "서울 광진구 아차산로36길 5";
 
 export default function Venue() {
   return (
@@ -32,9 +35,12 @@ export default function Venue() {
         >
           KU컨벤션 웨딩홀
         </p>
-        <p style={{ fontFamily: "var(--font-sans)", textAlign: "center", fontSize: "12px", opacity: 0.5, marginBottom: "32px" }}>
-          서울 광진구 아차산로36길 5
-        </p>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginBottom: "32px" }}>
+          <p style={{ fontFamily: "var(--font-sans)", textAlign: "center", fontSize: "12px", opacity: 0.5 }}>
+            {VENUE_ADDRESS}
+          </p>
+          <CopyButton text={VENUE_ADDRESS} />
+        </div>
       </ScrollAnimation>
 
       {/* Map */}
