@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "이건호 ♥ 에스더 결혼합니다",
     description: "2027년 4월 3일 토요일 오후 4시 20분 | KU컨벤션 웨딩홀",
     type: "website",
-    images: [{ url: "/main.JPG", width: 1200, height: 1801, alt: "이건호 ♥ 에스더 결혼합니다" }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "이건호 ♥ 에스더 결혼합니다" }],
   },
 };
 
