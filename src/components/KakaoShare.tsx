@@ -16,7 +16,9 @@ declare global {
 }
 
 const KAKAO_KEY = "509f69cf3a948a498b7790421654fb55";
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+// Always share the deployed URL — never localhost or a preview origin, which
+// KakaoTalk can't open on another device.
+const SITE_URL = "https://lkh9596.github.io/wedding-kr/";
 
 export default function KakaoShare() {
   useEffect(() => {
@@ -50,18 +52,18 @@ export default function KakaoShare() {
       content: {
         title: "이건호 ♥ 에스더 결혼합니다",
         description: "2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀",
-        imageUrl: `${window.location.origin}${basePath}/main.JPG`,
+        imageUrl: `${SITE_URL}og.jpg`,
         link: {
-          mobileWebUrl: window.location.href,
-          webUrl: window.location.href,
+          mobileWebUrl: SITE_URL,
+          webUrl: SITE_URL,
         },
       },
       buttons: [
         {
           title: "청첩장 보기",
           link: {
-            mobileWebUrl: window.location.href,
-            webUrl: window.location.href,
+            mobileWebUrl: SITE_URL,
+            webUrl: SITE_URL,
           },
         },
       ],
@@ -73,10 +75,10 @@ export default function KakaoShare() {
       navigator.share({
         title: "이건호 ♥ 에스더 결혼합니다",
         text: "2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀",
-        url: window.location.href,
+        url: SITE_URL,
       }).catch(() => {});
     } else {
-      navigator.clipboard.writeText(window.location.href).then(() => {
+      navigator.clipboard.writeText(SITE_URL).then(() => {
         alert("링크가 복사되었습니다!");
       });
     }
