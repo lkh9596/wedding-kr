@@ -69,7 +69,7 @@ export default function RSVP() {
   };
 
   return (
-    <section style={{ padding: "64px 24px" }}>
+    <section style={{ padding: "48px 24px" }}>
       <div className="section-divider" style={{ marginBottom: "32px" }}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path
@@ -201,27 +201,37 @@ export default function RSVP() {
                   {[ATTENDING, NOT_ATTENDING].map((option) => {
                     const selected = attendance === option;
                     return (
-                      <button
+                      <label
                         key={option}
-                        type="button"
-                        role="radio"
-                        aria-checked={selected}
-                        className="rsvp-option"
-                        onClick={() => setAttendance(option)}
-                        style={{
-                          flex: 1,
-                          padding: "12px 0",
-                          borderRadius: "10px",
-                          fontFamily: "var(--font-sans)",
-                          fontSize: "14px",
-                          transition: "all 200ms",
-                          border: selected ? "1px solid var(--color-deep-rose)" : "1px solid rgba(201,169,110,0.35)",
-                          backgroundColor: selected ? "var(--color-deep-rose)" : "rgba(250,243,235,0.8)",
-                          color: selected ? "#fff" : "var(--color-charcoal)",
-                        }}
+                        style={{ flex: 1, display: "block", position: "relative", cursor: "pointer" }}
                       >
-                        {option}
-                      </button>
+                        <input
+                          className="rsvp-radio-input"
+                          type="radio"
+                          name="attendance"
+                          value={option}
+                          checked={selected}
+                          onChange={() => setAttendance(option)}
+                        />
+                        <span
+                          className="rsvp-option"
+                          style={{
+                            display: "block",
+                            width: "100%",
+                            textAlign: "center",
+                            padding: "12px 0",
+                            borderRadius: "10px",
+                            fontFamily: "var(--font-sans)",
+                            fontSize: "14px",
+                            transition: "all 200ms",
+                            border: selected ? "1px solid var(--color-deep-rose)" : "1px solid rgba(201,169,110,0.35)",
+                            backgroundColor: selected ? "var(--color-deep-rose)" : "rgba(250,243,235,0.8)",
+                            color: selected ? "#fff" : "var(--color-charcoal)",
+                          }}
+                        >
+                          {option}
+                        </span>
+                      </label>
                     );
                   })}
                 </div>
@@ -239,27 +249,37 @@ export default function RSVP() {
                     {COUNT_OPTIONS.map((option) => {
                       const selected = count === option;
                       return (
-                        <button
+                        <label
                           key={option}
-                          type="button"
-                          role="radio"
-                          aria-checked={selected}
-                          className="rsvp-option"
-                          onClick={() => setCount(option)}
-                          style={{
-                            flex: 1,
-                            padding: "10px 0",
-                            borderRadius: "9999px",
-                            fontFamily: "var(--font-sans)",
-                            fontSize: "13px",
-                            transition: "all 200ms",
-                            border: selected ? "1px solid var(--color-gold)" : "1px solid rgba(201,169,110,0.35)",
-                            backgroundColor: selected ? "rgba(201,169,110,0.18)" : "rgba(250,243,235,0.8)",
-                            color: "var(--color-charcoal)",
-                          }}
+                          style={{ flex: 1, display: "block", position: "relative", cursor: "pointer" }}
                         >
-                          {option}
-                        </button>
+                          <input
+                            className="rsvp-radio-input"
+                            type="radio"
+                            name="count"
+                            value={option}
+                            checked={selected}
+                            onChange={() => setCount(option)}
+                          />
+                          <span
+                            className="rsvp-option"
+                            style={{
+                              display: "block",
+                              width: "100%",
+                              textAlign: "center",
+                              padding: "10px 0",
+                              borderRadius: "9999px",
+                              fontFamily: "var(--font-sans)",
+                              fontSize: "13px",
+                              transition: "all 200ms",
+                              border: selected ? "1px solid var(--color-gold)" : "1px solid rgba(201,169,110,0.35)",
+                              backgroundColor: selected ? "rgba(201,169,110,0.18)" : "rgba(250,243,235,0.8)",
+                              color: "var(--color-charcoal)",
+                            }}
+                          >
+                            {option}
+                          </span>
+                        </label>
                       );
                     })}
                   </div>
