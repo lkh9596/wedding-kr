@@ -2,27 +2,6 @@
 
 import ScrollAnimation from "./ScrollAnimation";
 
-const DAYS_OF_WEEK = ["일", "월", "화", "수", "목", "금", "토"];
-
-function generateCalendarDays() {
-  // April 2027
-  const year = 2027;
-  const month = 3; // 0-indexed
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const weddingDay = 3;
-
-  const days: (number | null)[] = [];
-  for (let i = 0; i < firstDay; i++) {
-    days.push(null);
-  }
-  for (let i = 1; i <= daysInMonth; i++) {
-    days.push(i);
-  }
-
-  return { days, weddingDay };
-}
-
 const GOOGLE_CAL_URL = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" +
   encodeURIComponent("이건호 ♥ 에스더 결혼식") +
   "&dates=20270403T072000Z/20270403T092000Z" +
@@ -34,8 +13,6 @@ function handleAddToCalendar() {
 }
 
 export default function WeddingDate() {
-  const { days, weddingDay } = generateCalendarDays();
-
   return (
     <section style={{ backgroundColor: "var(--color-soft-pink)", padding: "64px 24px" }}>
       <div className="section-divider" style={{ marginBottom: "32px" }}>
@@ -64,66 +41,6 @@ export default function WeddingDate() {
         >
           오후 4시 20분
         </p>
-      </ScrollAnimation>
-
-      {/* Mini Calendar */}
-      <ScrollAnimation delay={200}>
-        <div style={{ maxWidth: "260px", margin: "0 auto", marginBottom: "12px" }}>
-          <p
-            style={{ color: "var(--color-gold)", fontFamily: "var(--font-serif)", textAlign: "center", fontSize: "14px", letterSpacing: "0.1em", marginBottom: "16px" }}
-          >
-            APRIL 2027
-          </p>
-
-          {/* Day headers */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "0", textAlign: "center", fontSize: "12px", marginBottom: "8px" }}>
-            {DAYS_OF_WEEK.map((day, i) => (
-              <div
-                key={day}
-                style={{
-                  fontFamily: "var(--font-sans)",
-                  color: i === 0 ? "var(--color-deep-rose)" : "var(--color-charcoal)",
-                  opacity: 0.5,
-                  paddingTop: "4px",
-                  paddingBottom: "4px",
-                }}
-              >
-                {day}
-              </div>
-            ))}
-          </div>
-
-          {/* Calendar days */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "0", textAlign: "center", fontSize: "14px" }}>
-            {days.map((day, i) => (
-              <div
-                key={i}
-                style={{
-                  fontFamily: "var(--font-sans)",
-                  color:
-                    day === weddingDay
-                      ? "#fff"
-                      : i % 7 === 0
-                      ? "var(--color-deep-rose)"
-                      : "var(--color-charcoal)",
-                  opacity: day ? (day === weddingDay ? 1 : 0.6) : 0,
-                  padding: "6px 0",
-                  position: "relative",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                {day === weddingDay && (
-                  <div
-                    style={{ position: "absolute", width: "24px", height: "24px", borderRadius: "9999px", backgroundColor: "var(--color-deep-rose)" }}
-                  />
-                )}
-                <span style={{ position: "relative", zIndex: 10, fontSize: "12px" }}>{day}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </ScrollAnimation>
 
       {/* Venue name & Calendar button */}
