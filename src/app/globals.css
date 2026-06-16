@@ -87,6 +87,11 @@ img {
   display: none;
 }
 
+.rsvp-option:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
 /* Calendar button hover */
 .btn-calendar {
   transition: all 0.3s ease;

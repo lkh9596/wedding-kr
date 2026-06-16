@@ -22,16 +22,21 @@ export default function Gallery() {
     const container = scrollRef.current;
     if (!container) return;
 
-    const handleScroll = () => {
+    const updateActiveIndex = () => {
       const scrollLeft = container.scrollLeft;
       // One card per view: stride = card width (offsetWidth - 2*padding) + gap.
       const itemWidth = container.offsetWidth - 24;
+      if (itemWidth <= 0) return;
       const index = Math.round(scrollLeft / itemWidth);
       setActiveIndex(Math.min(index, photos.length - 1));
     };
 
-    container.addEventListener("scroll", handleScroll, { passive: true });
-    return () => container.removeEventListener("scroll", handleScroll);
+    container.addEventListener("scroll", updateActiveIndex, { passive: true });
+    window.addEventListener("resize", updateActiveIndex);
+    return () => {
+      container.removeEventListener("scroll", updateActiveIndex);
+      window.removeEventListener("resize", updateActiveIndex);
+    };
   }, []);
 
   return (
@@ -104,6 +109,7 @@ export default function Gallery() {
                 padding: 0,
               }}
               aria-label={`Go to photo ${i + 1}`}
+              aria-current={i === activeIndex ? "true" : undefined}
             />
           ))}
         </div>
