@@ -36,7 +36,9 @@ export default function Gallery() {
 
   const closeLightbox = useCallback(() => {
     const currentIndex = lightboxIndexRef.current;
-    const returnTarget = lastFocusedElementRef.current ?? (currentIndex !== null ? thumbnailRefs.current[currentIndex] : null);
+    // Return focus to the photo actually being viewed (which may differ from
+    // the one originally clicked after prev/next), falling back to the opener.
+    const returnTarget = (currentIndex !== null ? thumbnailRefs.current[currentIndex] : null) ?? lastFocusedElementRef.current;
     setLightboxIndex(null);
     window.requestAnimationFrame(() => {
       returnTarget?.focus();
@@ -118,6 +120,14 @@ export default function Gallery() {
 
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
+
+      // If focus has escaped the modal (e.g. onto a non-focusable element or
+      // <body>), pull it back in before applying the wraparound logic.
+      if (!modalRef.current?.contains(document.activeElement)) {
+        event.preventDefault();
+        firstElement.focus();
+        return;
+      }
 
       if (event.shiftKey && document.activeElement === firstElement) {
         event.preventDefault();
