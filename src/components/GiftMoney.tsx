@@ -13,13 +13,13 @@ interface Account {
 
 const accounts: { title: string; items: Account[] }[] = [
   {
-    title: "신랑측 계좌번호",
+    title: "신랑혼주 계좌",
     items: [
       { label: "아버지", holder: "이한행", bank: "은행명", number: "000-000-000" },
     ],
   },
   {
-    title: "신랑 계좌번호",
+    title: "신랑 계좌",
     items: [
       { label: "신랑", holder: "이건호", bank: "하나은행", number: "164-910697-26307" },
     ],
@@ -70,7 +70,7 @@ function AccountAccordion({ title, items }: { title: string; items: Account[] })
                   {account.bank} {account.number}
                 </p>
               </div>
-              <CopyButton text={`${account.bank} ${account.number} ${account.holder}`} />
+              <CopyButton text={account.number} />
             </div>
           ))}
         </div>
