@@ -6,10 +6,10 @@ import ScrollAnimation from "./ScrollAnimation";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const photos = [
+  `${basePath}/5.JPG`,
+  `${basePath}/4.JPG`,
   `${basePath}/1.jpg`,
   `${basePath}/3.jpg`,
-  `${basePath}/4.JPG`,
-  `${basePath}/5.JPG`,
   `${basePath}/6.JPG`,
   `${basePath}/7.JPG`,
 ];
