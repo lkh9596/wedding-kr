@@ -30,6 +30,7 @@ export default function RSVP() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === "submitting") return;
     setError(null);
 
     if (!name.trim()) {
@@ -131,6 +132,28 @@ export default function RSVP() {
                 <br />
                 소중한 마음 감사드립니다.
               </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setName("");
+                  setAttendance(null);
+                  setCount("1명");
+                  setError(null);
+                  setStatus("idle");
+                }}
+                style={{
+                  marginTop: "20px",
+                  padding: "10px 16px",
+                  borderRadius: "9999px",
+                  border: "1px solid rgba(201,169,110,0.65)",
+                  backgroundColor: "transparent",
+                  color: "var(--color-charcoal)",
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "12px",
+                }}
+              >
+                다른 분 참석 등록하기
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -147,6 +170,8 @@ export default function RSVP() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  maxLength={50}
+                  aria-invalid={!!error && !name.trim()}
                   placeholder="이름을 입력해 주세요"
                   style={{
                     width: "100%",
@@ -171,13 +196,16 @@ export default function RSVP() {
                 >
                   참석 여부
                 </span>
-                <div style={{ display: "flex", gap: "10px" }}>
+                <div role="radiogroup" aria-label="참석 여부" style={{ display: "flex", gap: "10px" }}>
                   {[ATTENDING, NOT_ATTENDING].map((option) => {
                     const selected = attendance === option;
                     return (
                       <button
                         key={option}
                         type="button"
+                        role="radio"
+                        aria-checked={selected}
+                        className="rsvp-option"
                         onClick={() => setAttendance(option)}
                         style={{
                           flex: 1,
@@ -206,13 +234,16 @@ export default function RSVP() {
                   >
                     참석 인원
                   </span>
-                  <div style={{ display: "flex", gap: "8px" }}>
+                  <div role="radiogroup" aria-label="참석 인원" style={{ display: "flex", gap: "8px" }}>
                     {COUNT_OPTIONS.map((option) => {
                       const selected = count === option;
                       return (
                         <button
                           key={option}
                           type="button"
+                          role="radio"
+                          aria-checked={selected}
+                          className="rsvp-option"
                           onClick={() => setCount(option)}
                           style={{
                             flex: 1,
@@ -235,7 +266,11 @@ export default function RSVP() {
               )}
 
               {error && (
-                <p style={{ fontFamily: "var(--font-sans)", fontSize: "12px", color: "var(--color-deep-rose)", textAlign: "center" }}>
+                <p
+                  role="alert"
+                  aria-live="polite"
+                  style={{ fontFamily: "var(--font-sans)", fontSize: "12px", color: "var(--color-deep-rose)", textAlign: "center" }}
+                >
                   {error}
                 </p>
               )}
