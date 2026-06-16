@@ -15,7 +15,7 @@ const accounts: { title: string; items: Account[] }[] = [
   {
     title: "신랑혼주 계좌",
     items: [
-      { label: "아버지", holder: "이한행", bank: "은행명", number: "000-000-000" },
+      { label: "아버지", holder: "이한행", bank: "우리은행", number: "007-099996-02-001" },
     ],
   },
   {
