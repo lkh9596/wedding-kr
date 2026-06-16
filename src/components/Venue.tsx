@@ -7,7 +7,7 @@ const VENUE_ADDRESS = "서울 광진구 아차산로36길 5";
 
 export default function Venue() {
   return (
-    <section style={{ padding: "64px 24px" }}>
+    <section style={{ padding: "48px 24px" }}>
       <div className="section-divider" style={{ marginBottom: "32px" }}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path

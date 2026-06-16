@@ -138,7 +138,7 @@ export default function Gallery() {
   }, [closeLightbox, isLightboxOpen, showNext, showPrevious]);
 
   return (
-    <section style={{ backgroundColor: "var(--color-soft-pink)", paddingTop: "64px", paddingBottom: "64px" }}>
+    <section style={{ backgroundColor: "var(--color-soft-pink)", paddingTop: "48px", paddingBottom: "48px" }}>
       <div className="section-divider" style={{ marginBottom: "32px", paddingLeft: "24px", paddingRight: "24px" }}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <rect x="2" y="2" width="12" height="12" rx="1" stroke="#C9A96E" strokeWidth="0.8" opacity="0.5" />

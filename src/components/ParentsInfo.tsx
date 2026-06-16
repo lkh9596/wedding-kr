@@ -4,9 +4,9 @@ import ScrollAnimation from "./ScrollAnimation";
 
 export default function ParentsInfo() {
   return (
-    <section style={{ padding: "64px 24px" }}>
+    <section style={{ padding: "48px 24px" }}>
       {/* Divider */}
-      <div className="section-divider" style={{ marginBottom: "48px" }}>
+      <div className="section-divider" style={{ marginBottom: "32px" }}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path
             d="M8 1L9.5 6.5H15L10.5 9.5L12 15L8 11.5L4 15L5.5 9.5L1 6.5H6.5L8 1Z"
