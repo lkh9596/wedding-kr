@@ -4,7 +4,7 @@ import ScrollAnimation from "./ScrollAnimation";
 
 export default function OurStory() {
   return (
-    <section style={{ padding: "64px 24px" }}>
+    <section style={{ padding: "48px 24px" }}>
       <div className="section-divider" style={{ marginBottom: "32px" }}>
         <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
           <path

@@ -8,14 +8,13 @@ interface Person {
   phone: string;
 }
 
-// TODO: replace placeholder phone numbers with the real ones.
-const groom: Person = { label: "신랑", name: "이건호", phone: "010-0000-0000" };
+const groom: Person = { label: "신랑", name: "이건호", phone: "010-9639-9596" };
 
 const groomParents: { title: string; people: Person[] } = {
   title: "신랑 측 혼주",
   people: [
-    { label: "아버지", name: "이한행", phone: "010-0000-0000" },
-    { label: "어머니", name: "박경숙", phone: "010-0000-0000" },
+    { label: "아버지", name: "이한행", phone: "010-8892-7125" },
+    { label: "어머니", name: "박경숙", phone: "010-7474-8791" },
   ],
 };
 
@@ -59,7 +58,7 @@ function ContactRow({ person }: { person: Person }) {
 
 export default function Contact() {
   return (
-    <section style={{ padding: "64px 24px" }}>
+    <section style={{ padding: "48px 24px" }}>
       <div className="section-divider" style={{ marginBottom: "32px" }}>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" strokeWidth="0.8" opacity="0.5">
           <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />

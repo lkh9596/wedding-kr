@@ -138,7 +138,7 @@ export default function Hero() {
       </ScrollAnimation>
 
       {/* Scroll indicator */}
-      <ScrollAnimation delay={1200} style={{ marginTop: "48px" }}>
+      <ScrollAnimation delay={1200} style={{ position: "absolute", bottom: "24px", left: 0, right: 0 }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", opacity: 0.3 }}>
           <div
             className="animate-pulse"
