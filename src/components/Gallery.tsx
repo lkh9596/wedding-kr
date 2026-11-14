@@ -9,9 +9,10 @@ const photos = [
   `${basePath}/5.JPG`,
   `${basePath}/4.JPG`,
   `${basePath}/1.jpg`,
-  `${basePath}/3.jpg`,
   `${basePath}/6.JPG`,
-  `${basePath}/7.JPG`,
+  `${basePath}/8.jpg`,
+  `${basePath}/9.jpg`,
+  `${basePath}/10.jpg`,
 ];
 
 // Minimum horizontal travel (px) for a lightbox swipe.
