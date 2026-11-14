@@ -4,6 +4,11 @@
   --color-deep-rose: #C48B9F;
   --color-charcoal: #3D3D3D;
   --color-gold: #C9A96E;
+  /* Readable text colours. The pale gold and rose above are for ornaments,
+     dividers and icons only; anything a guest needs to read uses these. */
+  --color-ink-muted: #6E645F; /* ≥4.7:1 on every page background */
+  --color-gold-ink: #86672E; /* 4.8:1 on beige */
+  --color-rose-ink: #9E6077; /* white text on it: 4.8:1 */
   --font-serif: "Noto Serif KR", serif;
   --font-sans: "Noto Sans KR", sans-serif;
 }
@@ -25,6 +30,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -41,6 +48,11 @@ img {
   max-width: 100%;
 }
 
+/* Sections reached from the hero shortcuts */
+section[id] {
+  scroll-margin-top: 16px;
+}
+
 /* Scrollbar hiding */
 ::-webkit-scrollbar {
   width: 0px;
@@ -53,7 +65,7 @@ img {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  padding: 20px 0;
+  padding: 12px 0;
 }
 
 .section-divider::before,
@@ -65,16 +77,41 @@ img {
   opacity: 0.5;
 }
 
-/* Fade-in animation */
-.fade-in {
+/* Scroll fade-in for decorative and prose blocks. The hidden starting state
+   only applies once the inline script in layout.tsx has added `js` to <html>,
+   so the page stays readable if JavaScript fails to load. */
+.js .fade-in {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.fade-in.visible {
+.js .fade-in.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+
+/* Hero fills the small viewport, so it doesn't jump when the in-app browser's
+   toolbars collapse; 100vh is the fallback for WebViews without svh. */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* Hero entrance on page load (CSS only, no scroll trigger) */
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-in {
+  animation: heroIn 0.4s ease-out both;
 }
 
 /* Gallery scrollbar */
@@ -94,34 +131,28 @@ img {
 
 .btn-calendar:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(196, 139, 159, 0.3);
+  box-shadow: 0 4px 12px rgba(158, 96, 119, 0.3);
 }
 
-/* Accordion animation */
+/* Accordion animation. `visibility` keeps the collapsed content out of the
+   tab order and the accessibility tree once the close animation finishes. */
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  visibility: hidden;
+  transition: max-height 0.4s ease-out, visibility 0s linear 0.4s;
 }
 
 .accordion-content.open {
   max-height: 500px;
+  visibility: visible;
+  transition: max-height 0.4s ease-out, visibility 0s;
 }
 
-/* Floral ornament SVG animation */
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.ornament-animate {
-  animation: fadeInScale 1.2s ease-out forwards;
+/* Lightbox photo height; 100vh is the fallback for WebViews without dvh */
+.lightbox-img {
+  max-height: calc(100vh - 120px);
+  max-height: calc(100dvh - 120px);
 }
 
 /* Snap scrolling for gallery */
@@ -133,12 +164,25 @@ img {
   scroll-snap-align: center;
 }
 
-/* Pulse animation */
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-.animate-pulse {
-  animation: pulse 2s ease-in-out infinite;
+  .js .fade-in,
+  .js .fade-in.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-in {
+    animation: none;
+  }
+
+  .btn-calendar,
+  .accordion-content,
+  .accordion-content.open {
+    transition: none;
+  }
 }
