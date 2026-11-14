@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import CopyButton from "./CopyButton";
 import ScrollAnimation from "./ScrollAnimation";
 
@@ -28,15 +28,19 @@ const accounts: { title: string; items: Account[] }[] = [
 
 function AccountAccordion({ title, items }: { title: string; items: Account[] }) {
   const [isOpen, setIsOpen] = useState(false);
+  const panelId = useId();
 
   return (
     <div style={{ borderRadius: "12px", overflow: "hidden", backgroundColor: "rgba(255,255,255,0.6)" }}>
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
-        style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 20px", fontSize: "14px", fontFamily: "var(--font-sans)", color: "var(--color-charcoal)", backgroundColor: "transparent", border: "none", cursor: "pointer" }}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+        style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", minHeight: "52px", padding: "14px 20px", fontSize: "15px", fontFamily: "var(--font-sans)", color: "var(--color-charcoal)", backgroundColor: "transparent", border: "none", cursor: "pointer" }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" strokeWidth="1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" strokeWidth="1.5" aria-hidden="true">
             <path d="M20 6H4C2.9 6 2 6.9 2 8v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z" />
             <path d="M2 10h20" />
           </svg>
@@ -49,28 +53,30 @@ function AccountAccordion({ title, items }: { title: string; items: Account[] })
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
+          aria-hidden="true"
           style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 300ms" }}
         >
           <polyline points="6 9 12 15 18 9" />
         </svg>
       </button>
 
-      <div className={`accordion-content ${isOpen ? "open" : ""}`}>
+      <div id={panelId} className={`accordion-content ${isOpen ? "open" : ""}`}>
         <div style={{ paddingLeft: "20px", paddingRight: "20px", paddingBottom: "16px", display: "flex", flexDirection: "column", gap: "8px" }}>
-          {items.map((account, idx) => (
+          {items.map((account) => (
             <div
-              key={idx}
-              style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px", borderRadius: "8px", backgroundColor: "rgba(250,243,235,0.8)" }}
+              key={account.number}
+              style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", padding: "12px 16px", borderRadius: "8px", backgroundColor: "rgba(250,243,235,0.8)" }}
             >
               <div>
-                <p style={{ fontFamily: "var(--font-sans)", fontSize: "12px", opacity: 0.5, marginBottom: "4px" }}>
+                <p style={{ fontFamily: "var(--font-sans)", fontSize: "13px", color: "var(--color-ink-muted)", marginBottom: "4px" }}>
                   {account.label} {account.holder}
                 </p>
                 <p style={{ fontFamily: "var(--font-sans)", color: "var(--color-charcoal)", fontSize: "14px" }}>
                   {account.bank} {account.number}
                 </p>
               </div>
-              <CopyButton text={account.number.replace(/-/g, "")} />
+              {/* Digits only, so it pastes cleanly into banking apps. */}
+              <CopyButton text={account.number.replace(/-/g, "")} label={`${account.holder} 계좌번호 복사`} />
             </div>
           ))}
         </div>
@@ -81,9 +87,9 @@ function AccountAccordion({ title, items }: { title: string; items: Account[] })
 
 export default function GiftMoney() {
   return (
-    <section style={{ backgroundColor: "var(--color-soft-pink)", padding: "48px 24px" }}>
-      <div className="section-divider" style={{ marginBottom: "32px" }}>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <section id="gift" style={{ backgroundColor: "var(--color-soft-pink)", padding: "36px 24px" }}>
+      <div className="section-divider" style={{ marginBottom: "20px" }}>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path
             d="M8 1L10 5.5H15L11 8.5L12.5 13L8 10L3.5 13L5 8.5L1 5.5H6L8 1Z"
             stroke="#C9A96E"
@@ -101,19 +107,17 @@ export default function GiftMoney() {
           마음 전하실 곳
         </h2>
         <p
-          style={{ fontFamily: "var(--font-sans)", textAlign: "center", fontSize: "12px", opacity: 0.5, marginBottom: "32px" }}
+          style={{ fontFamily: "var(--font-sans)", textAlign: "center", fontSize: "13px", color: "var(--color-ink-muted)", marginBottom: "24px" }}
         >
           축하의 마음을 전해주세요
         </p>
       </ScrollAnimation>
 
-      <ScrollAnimation delay={200}>
-        <div style={{ maxWidth: "360px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "12px" }}>
-          {accounts.map((group, idx) => (
-            <AccountAccordion key={idx} title={group.title} items={group.items} />
-          ))}
-        </div>
-      </ScrollAnimation>
+      <div style={{ maxWidth: "360px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "12px" }}>
+        {accounts.map((group) => (
+          <AccountAccordion key={group.title} title={group.title} items={group.items} />
+        ))}
+      </div>
     </section>
   );
 }
