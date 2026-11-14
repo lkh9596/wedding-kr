@@ -3,7 +3,7 @@
 export default function Footer() {
   return (
     <footer
-      style={{ backgroundColor: "var(--color-soft-pink)", padding: "48px 24px", textAlign: "center" }}
+      style={{ backgroundColor: "var(--color-soft-pink)", padding: "36px 24px", textAlign: "center" }}
     >
       <div style={{ marginBottom: "16px" }}>
         <svg width="24" height="20" viewBox="0 0 24 20" fill="none" style={{ margin: "0 auto 16px", display: "block" }}>

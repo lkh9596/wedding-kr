@@ -4,9 +4,9 @@ import ScrollAnimation from "./ScrollAnimation";
 
 export default function OurStory() {
   return (
-    <section style={{ padding: "48px 24px" }}>
-      <div className="section-divider" style={{ marginBottom: "32px" }}>
-        <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+    <section style={{ padding: "36px 24px" }}>
+      <div className="section-divider" style={{ marginBottom: "20px" }}>
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true">
           <path
             d="M10 14C10 14 1 8 1 4.5C1 2 3 0 5.5 0C7.5 0 9 1.5 10 3C11 1.5 12.5 0 14.5 0C17 0 19 2 19 4.5C19 8 10 14 10 14Z"
             stroke="#C48B9F"
@@ -19,16 +19,16 @@ export default function OurStory() {
 
       <ScrollAnimation>
         <h2
-          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", textAlign: "center", fontSize: "18px", marginBottom: "32px" }}
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", textAlign: "center", fontSize: "18px", marginBottom: "24px" }}
         >
           우리의 이야기
         </h2>
       </ScrollAnimation>
 
-      <ScrollAnimation delay={200}>
+      <ScrollAnimation delay={100}>
         <div style={{ textAlign: "center" }}>
           <p
-            style={{ fontFamily: "var(--font-serif)", textAlign: "center", fontSize: "14px", lineHeight: "2.2", opacity: 0.7 }}
+            style={{ fontFamily: "var(--font-serif)", textAlign: "center", fontSize: "14px", lineHeight: "2.2", opacity: 0.8 }}
           >
             페루에서의 우연한 만남으로
             <br />

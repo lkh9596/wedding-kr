@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div style={{ minHeight: "100vh", maxWidth: "480px", width: "100%", margin: "0 auto", backgroundColor: "var(--color-warm-beige)", overflow: "hidden", boxSizing: "border-box" }}>
+    <div style={{ minHeight: "100vh", maxWidth: "480px", width: "100%", margin: "0 auto", backgroundColor: "var(--color-warm-beige)", overflow: "hidden", boxSizing: "border-box", boxShadow: "0 0 40px rgba(61,61,61,0.07)" }}>
       <Hero />
       <ParentsInfo />
       <OurStory />
