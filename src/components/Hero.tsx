@@ -3,8 +3,8 @@
 const GOOGLE_CAL_URL = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" +
   encodeURIComponent("이건호 ♥ 에스더 결혼식") +
   "&dates=20270403T072000Z/20270403T092000Z" +
-  "&location=" + encodeURIComponent("KU컨벤션 웨딩홀, 서울 광진구 아차산로36길 5") +
-  "&details=" + encodeURIComponent("2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀");
+  "&location=" + encodeURIComponent("KU컨벤션 웨딩홀 (건국대학교), 서울 광진구 아차산로36길 5") +
+  "&details=" + encodeURIComponent("2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀 (건국대학교)");
 
 const SHORTCUTS = [
   { href: "#venue", label: "오시는 길" },
@@ -116,7 +116,7 @@ export default function Hero() {
         <p
           style={{ color: "var(--color-ink-muted)", fontFamily: "var(--font-sans)", textAlign: "center", fontSize: "14px", marginTop: "4px" }}
         >
-          KU컨벤션 웨딩홀
+          KU컨벤션 웨딩홀 (건국대학교)
         </p>
       </div>
 
