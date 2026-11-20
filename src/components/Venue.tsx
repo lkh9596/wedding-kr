@@ -73,7 +73,7 @@ export default function Venue() {
       <p
         style={{ fontFamily: "var(--font-serif)", color: "var(--color-charcoal)", textAlign: "center", fontSize: "16px", marginTop: "12px", marginBottom: "6px" }}
       >
-        KU컨벤션 웨딩홀
+        KU컨벤션 웨딩홀 (건국대학교)
       </p>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginBottom: "24px" }}>
         <p style={{ fontFamily: "var(--font-sans)", textAlign: "center", fontSize: "14px", color: "var(--color-ink-muted)" }}>

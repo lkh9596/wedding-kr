@@ -101,7 +101,7 @@ export default function KakaoShare() {
       objectType: "feed",
       content: {
         title: "이건호 ♥ 에스더 결혼합니다",
-        description: "2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀",
+        description: "2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀 (건국대학교)",
         imageUrl: `${SITE_URL}main.JPG`,
         link: {
           mobileWebUrl: SITE_URL,
@@ -124,7 +124,7 @@ export default function KakaoShare() {
     if (navigator.share) {
       navigator.share({
         title: "이건호 ♥ 에스더 결혼합니다",
-        text: "2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀",
+        text: "2027년 4월 3일 토요일 오후 4시 20분\nKU컨벤션 웨딩홀 (건국대학교)",
         url: SITE_URL,
       }).catch(() => {});
       return;

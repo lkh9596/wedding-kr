@@ -6,7 +6,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export const metadata: Metadata = {
   metadataBase: new URL(`https://lkh9596.github.io${process.env.NEXT_PUBLIC_BASE_PATH || ""}`),
   title: "이건호 ♥ 에스더 결혼합니다",
-  description: "2027년 4월 3일 토요일 오후 4시 20분 | KU컨벤션 웨딩홀",
+  description: "2027년 4월 3일 토요일 오후 4시 20분 | KU컨벤션 웨딩홀 (건국대학교)",
   icons: {
     // Next doesn't prefix metadata icon paths with basePath, so do it here.
     icon: `${basePath}/favicon.svg`,
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "이건호 ♥ 에스더 결혼합니다",
-    description: "2027년 4월 3일 토요일 오후 4시 20분 | KU컨벤션 웨딩홀",
+    description: "2027년 4월 3일 토요일 오후 4시 20분 | KU컨벤션 웨딩홀 (건국대학교)",
     type: "website",
     images: [{ url: "/main.JPG", width: 1200, height: 1801, alt: "이건호 ♥ 에스더 결혼합니다" }],
   },
